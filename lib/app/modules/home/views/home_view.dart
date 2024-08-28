@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart'; // Paket untuk widget dan elemen UI Flutter.
 import 'package:get/get.dart'; // Paket GetX untuk manajemen status.
 
-import '../controllers/home_controller.dart'; // Mengimpor controller home.
+import '../controllers/home_controller.dart'; // Mengimpor widget tombol navigasi.
+import 'navigation_button.dart'; // Mengimpor controller home.
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -18,15 +19,17 @@ class HomeView extends GetView<HomeController> {
           mainAxisAlignment: MainAxisAlignment
               .center, // Menyusun elemen secara vertikal di tengah.
           children: [
-            ElevatedButton(
+            // Menggunakan widget NavigationButton untuk tombol "Mark Location".
+            NavigationButton(
+              label: 'Mark Location',
               onPressed: controller
                   .goToLocationView, // Aksi untuk navigasi ke tampilan lokasi.
-              child: const Text('Mark Location'), // Teks tombol.
             ),
-            ElevatedButton(
+            // Menggunakan widget NavigationButton untuk tombol "Record Attendance".
+            NavigationButton(
+              label: 'Record Attendance',
               onPressed: controller
                   .goToAttendanceView, // Aksi untuk navigasi ke tampilan kehadiran.
-              child: const Text('Record Attendance'), // Teks tombol.
             ),
           ],
         ),
