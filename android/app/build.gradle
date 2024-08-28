@@ -1,0 +1,47 @@
+buildscript {
+    ext.kotlin_version = '1.9.0' // Pastikan versi ini adalah yang terbaru
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.0.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace = "com.iqbalsuwandi.flutter_attendance"
+    compileSdk = 34 // Pastikan ini sesuai dengan SDK terbaru
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.iqbalsuwandi.flutter_attendance"
+        minSdk = 21 // Sesuaikan dengan minSdk yang diinginkan
+        targetSdk = 34 // Sesuaikan dengan targetSdk yang diinginkan
+
+        // Menentukan versi kode dan nama versi secara langsung
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
